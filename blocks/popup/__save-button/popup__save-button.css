@@ -1,0 +1,11 @@
+.popup__save-button {
+    border: none;
+    border-radius: 2px;
+    background-color: #000;
+    width: 100%;
+    align-items: center;
+    color: #fff;
+    font-size: 18px;
+    line-height: 49px;
+    cursor: pointer;
+}

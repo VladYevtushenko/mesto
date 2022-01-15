@@ -8,4 +8,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 0;
+}
+
+@media screen and (max-width: 573px) {
+    .profile__add-button {
+        width: 282px;
+    }
 }

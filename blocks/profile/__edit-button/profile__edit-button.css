@@ -7,4 +7,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 6px 0 0 1px;
+}
+
+@media screen and (max-width: 573px) {
+    .profile__edit-button {
+        width: 18px;
+        height: 18px;
+        margin: 0;
+    }
 }
