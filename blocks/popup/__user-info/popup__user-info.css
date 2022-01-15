@@ -36,3 +36,9 @@
     line-height: 17px;
     font-family: 'Inter';
 }
+
+@media screen and (max-width: 515px) {
+    .popup__user-info {
+        padding-bottom: 9px;
+    }
+}

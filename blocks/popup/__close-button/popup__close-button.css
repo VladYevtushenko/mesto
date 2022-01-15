@@ -6,5 +6,12 @@
     background: none;
     padding: 0;
     cursor: pointer;
-    z-index: 150;
+    z-index: 3;
+}
+
+@media screen and (max-width: 515px) {
+    .popup__close-button {
+        top: -333px;
+        right: -130px;
+    }
 }

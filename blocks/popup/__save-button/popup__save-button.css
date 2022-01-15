@@ -9,3 +9,10 @@
     line-height: 49px;
     cursor: pointer;
 }
+
+@media screen and (max-width: 515px) {
+    .popup__save-button {
+        font-size: 14px;
+        line-height: 44px;
+    }
+}

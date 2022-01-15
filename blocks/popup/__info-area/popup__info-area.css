@@ -7,3 +7,9 @@
     max-width: 100%;
     margin: 0 36px 23px 36px;
 }
+
+@media screen and (max-width: 515px) {
+    .popup__info-area {
+        margin: 0 22px;
+    }
+}

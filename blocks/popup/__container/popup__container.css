@@ -6,4 +6,11 @@
     border-radius: 10px;
     display: flex;
     flex-direction: column;
+    z-index: 2;
+}
+
+@media screen and (max-width: 515px) {
+    .popup__container {
+        width: 282px;
+    }
 }
