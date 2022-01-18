@@ -1,9 +1,0 @@
-.popup__user-info_name {
-    margin-bottom: 30px;
-}
-
-@media screen and (max-width: 515px) {
-    .popup__user-info_name {
-        margin-bottom: 30px;
-    }
-}

@@ -2,5 +2,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 5px 15px 5px 21px;
+    margin: 25px 15px 25px 21px;
+    border: none;
+}
+
+@media screen and (max-width: 515px) {
+    .elements__info {
+        margin-top: 24.9px;
+    }
 }

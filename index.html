@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Владислав Евтушенко">
-    <title>Mesto</title>
+    <title>Место</title>
     <link rel="stylesheet" href="./pages/index.css">
 </head>
 <body class="body">
@@ -19,91 +19,73 @@
                     <div class="profile__item">
                         <div class="profile__name-box">
                             <h1 class="profile__name">Жак-Ив Кусто</h1>
-                            <button class="profile__edit-button button-hover" type="button">
-                                <img src="./images/pen.svg" alt="ручка">
-                            </button>
+                            <button class="profile__edit-button" aria-label="edit-batton" type="button"></button>
                         </div>
                         <p class="profile__about-me">Исследователь океана</p>
                     </div>
                 </div>
-                <button class="profile__add-button button-hover" type="button">
-                    <img src="./images/plus.svg" alt="кнопка плюс" class="profile__plus-button">
-                </button>
+                <button class="profile__add-button" aria-label="add-button" type="button"></button>
             </section>
-            <section>
-                <ul class="elements main__elements">
-                    <li class="elements__card">
-                        <img src="./images/kirill-pershin-1088404-unsplash.png" alt="Карачаево-Черкесия" class="elements__photo">
-                        <div class="elements__info">
-                            <h2 class="elements__title">Карачаево-Черкесия</h2>
-                            <button class="elements__like-button button-hover">
-                                <img src="./images/like.svg" alt="кнопка нравится">
-                            </button>
-                        </div>
-                    </li>
-                    <li class="elements__card">
-                        <img src="./images/kirill-pershin-1404681-unsplash.png" alt="Гора Эльбрус" class="elements__photo">
-                        <div class="elements__info">
-                            <h2 class="elements__title">Гора Эльбрус</h2>
-                            <button class="elements__like-button button-hover">
-                                <img src="./images/like.svg" alt="кнопка нравится">
-                            </button>
-                        </div>
-                    </li>
-                    <li class="elements__card">
-                        <img src="./images/kirill-pershin-1556355-unsplash.png" alt="Домбай" class="elements__photo">
-                        <div class="elements__info">
-                            <h2 class="elements__title">Домбай</h2>
-                            <button class="elements__like-button button-hover">
-                                <img src="./images/like.svg" alt="кнопка нравится">
-                            </button>
-                        </div>
-                    </li>
-                    <li class="elements__card">
-                        <img src="./images/alexandr-bormotin-jj3PpeBIlLA-unsplash.jpg" alt="Москва Сити" class="elements__photo">
-                        <div class="elements__info">
-                            <h2 class="elements__title">Москва Сити</h2>
-                            <button class="elements__like-button button-hover">
-                                <img src="./images/like.svg" alt="кнопка нравится">
-                            </button>
-                        </div>
-                    </li>
-                    <li class="elements__card">
-                        <img src="./images/dima-fedorov-ZZkw00YCY1E-unsplash.jpg" alt="Морпорт Сочи" class="elements__photo">
-                        <div class="elements__info">
-                            <h2 class="elements__title">Морпорт Сочи</h2>
-                            <button class="elements__like-button button-hover">
-                                <img src="./images/like.svg" alt="кнопка нравится">
-                            </button>
-                        </div>
-                    </li>
-                    <li class="elements__card">
-                        <img src="./images/ilya-bronskiy-7haj8Ca19Ts-unsplash.jpg" alt="Санкт-Петербург" class="elements__photo">
-                        <div class="elements__info">
-                            <h2 class="elements__title">Санкт-Петербург</h2>
-                            <button class="elements__like-button button-hover">
-                                <img src="./images/like.svg" alt="кнопка нравится">
-                            </button>
-                        </div>
-                    </li>
-                </ul>
-            </section>
+            <ul class="elements main__elements">
+                <li class="elements__card">
+                    <img src="./images/kirill-pershin-1088404-unsplash.png" alt="Карачаево-Черкесия" class="elements__photo">
+                    <div class="elements__info">
+                        <h2 class="elements__title">Карачаево-Черкесия</h2>
+                        <button class="elements__like-button" type="button"></button>
+                    </div>
+                </li>
+                <li class="elements__card">
+                    <img src="./images/kirill-pershin-1404681-unsplash.png" alt="Гора Эльбрус" class="elements__photo">
+                    <div class="elements__info">
+                        <h2 class="elements__title">Гора Эльбрус</h2>
+                        <button class="elements__like-button" type="button"></button>
+                    </div>
+                </li>
+                <li class="elements__card">
+                    <img src="./images/kirill-pershin-1556355-unsplash.png" alt="Домбай" class="elements__photo">
+                    <div class="elements__info">
+                        <h2 class="elements__title">Домбай</h2>
+                        <button class="elements__like-button" type="button"></button>
+                    </div>
+                </li>
+                <li class="elements__card">
+                    <img src="./images/alexandr-bormotin-jj3PpeBIlLA-unsplash.jpg" alt="Москва Сити" class="elements__photo">
+                    <div class="elements__info">
+                        <h2 class="elements__title">Москва Сити</h2>
+                        <button class="elements__like-button" type="button"></button>
+                    </div>
+                </li>
+                <li class="elements__card">
+                    <img src="./images/dima-fedorov-ZZkw00YCY1E-unsplash.jpg" alt="Морпорт Сочи" class="elements__photo">
+                    <div class="elements__info">
+                        <h2 class="elements__title">Морпорт Сочи</h2>
+                        <button class="elements__like-button" type="button"></button>
+                    </div>
+                </li>
+                <li class="elements__card">
+                    <img src="./images/ilya-bronskiy-7haj8Ca19Ts-unsplash.jpg" alt="Санкт-Петербург" class="elements__photo">
+                    <div class="elements__info">
+                        <h2 class="elements__title">Санкт-Петербург</h2>
+                        <button class="elements__like-button" type="button"></button>
+                    </div>
+                </li>
+            </ul>
         </main>
         <footer class="footer page__footer">
             <p class="footer__copyright">&COPY; 2022. Влад Евтушенко</p>
         </footer>
         <div class="popup">
-            <form class="popup__container">
+            <div class="popup__container">
                 <h2 class="popup__heading">Редактировать профиль</h2>
-                <fieldset class="popup__info-area">
-                    <input type="text" class="popup__user-info popup__user-info_name" placeholder="Имя" id="popupProfName">
-                    <input type="text" class="popup__user-info popup__user-info_about-me" placeholder="О себе" id="popupProfAboutMe">
-                    <button class="popup__save-button button-hover" type="submit">Сохранить</button>
-                </fieldset>
-                <button type="button" class="popup__close-button button-hover"><img src="./images/Close-Icon.svg" alt="крестик" class="popup__x-button"></button>
-            </form>
+                <form class="popup__info-area" name="user-info">
+                    <input type="text" class="popup__user-info" placeholder="Имя" id="popupProfName" name="user-name">
+                    <input type="text" class="popup__user-info" placeholder="О себе" id="popupProfAboutMe" name="about-me">
+                    <button class="popup__save-button" type="submit">Сохранить</button>
+                </form>
+                <button class="popup__close-button" aria-label="close-button" type="button"></button>
+            </div>
         </div>
     </div>
-<script src="./pages/index.js"></script>    
+<script src="./scripts/index.js"></script>    
 </body>
 </html>

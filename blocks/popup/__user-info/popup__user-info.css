@@ -3,7 +3,8 @@
     border: none;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     padding: 0;
-    padding-bottom: 12px;
+    padding-bottom: 9px;
+    margin-bottom: 30px;
     font-size: 14px;
     line-height: 17px;
     font-weight: normal;
@@ -13,28 +14,28 @@
     color: #000;
     font-size: 14px;
     line-height: 17px;
-    font-family: 'Inter';
+    font-family: 'Inter', "Arial", sans-serif;
 }
 
 .popup__user-info::-webkit-input-placeholder {
     color: #000;
     font-size: 14px;
     line-height: 17px;
-    font-family: 'Inter';
+    font-family: 'Inter', "Arial", sans-serif;
 }
 
 .popup__user-info::-moz-input-placeholder {
     color: #000;
     font-size: 14px;
     line-height: 17px;
-    font-family: 'Inter';
+    font-family: 'Inter', "Arial", sans-serif;
 }
 
 .popup__user-info::-ms-input-placeholder {
     color: #000;
     font-size: 14px;
     line-height: 17px;
-    font-family: 'Inter';
+    font-family: 'Inter', "Arial", sans-serif;
 }
 
 @media screen and (max-width: 515px) {

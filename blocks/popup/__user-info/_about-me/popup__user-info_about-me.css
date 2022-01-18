@@ -1,9 +1,0 @@
-.popup__user-info_about-me {
-    margin-bottom: 48px;
-}
-
-@media screen  {
-    .popup__user-info_about-me {
-        margin-bottom: 45px;
-    }
-}
