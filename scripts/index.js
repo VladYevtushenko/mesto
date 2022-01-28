@@ -1,3 +1,5 @@
+import  { initialCards } from "./elements"
+
 const profileEditing = document.querySelector('.profile__edit-button');
 
 const popupClose = document.querySelector('.popup__close-button');
