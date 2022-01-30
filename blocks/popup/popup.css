@@ -8,5 +8,8 @@
     z-index: 1;
     justify-content: center;
     align-items: center;
-    display: none;
+    display: flex;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .8s, visibility .8s linear .1s;
 }

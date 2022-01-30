@@ -1,4 +1,4 @@
-.popup__user-info {
+.popup__input {
     min-width: 100%;
     border: none;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
@@ -10,28 +10,28 @@
     font-weight: normal;
 }
 
-.popup__user-info::placeholder {
+.popup__input::placeholder {
     color: #000;
     font-size: 14px;
     line-height: 17px;
     font-family: 'Inter', "Arial", sans-serif;
 }
 
-.popup__user-info::-webkit-input-placeholder {
+.popup__input::-webkit-input-placeholder {
     color: #000;
     font-size: 14px;
     line-height: 17px;
     font-family: 'Inter', "Arial", sans-serif;
 }
 
-.popup__user-info::-moz-input-placeholder {
+.popup__input::-moz-input-placeholder {
     color: #000;
     font-size: 14px;
     line-height: 17px;
     font-family: 'Inter', "Arial", sans-serif;
 }
 
-.popup__user-info::-ms-input-placeholder {
+.popup__input::-ms-input-placeholder {
     color: #000;
     font-size: 14px;
     line-height: 17px;
@@ -39,7 +39,7 @@
 }
 
 @media screen and (max-width: 515px) {
-    .popup__user-info {
+    .popup__input {
         padding-bottom: 9px;
     }
 }
