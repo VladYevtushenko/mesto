@@ -1,15 +1,15 @@
 const initialCards = [
     {
-        name: 'Карачаево-Черкесия',
-        link: '../images/kirill-pershin-1088404-unsplash.png',
+        name: 'Лондон',
+        link: '../images/biel-morro-wydEbTWhzTc-unsplash.jpg',
     },
     {
-        name: 'Гора Эльбрус',
-        link: '../images/kirill-pershin-1404681-unsplash.png',
+        name: 'Лувр',
+        link: '../images/patrick-langwallner-TTz_H1FrdIc-unsplash.jpg',
     },
     {
-        name: 'Домбай',
-        link: '../images/kirill-pershin-1556355-unsplash.png',
+        name: 'Белладжо',
+        link: '../images/luca-j-60LHJ-wdcgk-unsplash.jpg',
     },
     {
         name: 'Москва-Сити',
@@ -33,11 +33,15 @@ const profileAboutMe = document.querySelector('.profile__about-me');
 const userName = document.querySelector('#popupProfName');
 const userAboutMe = document.querySelector('#popupProfAboutMe');
 const popupForm = document.querySelector('.popup__container');
-
 let stateCards = [...initialCards];
 const template = document.querySelector('#element-template');
 const container = template.parentElement;
 const cardTemplate = template.content;
+const popupVueImage = document.querySelector('.popup_type_image');
+const popupImage = document.querySelector('.popup__big-image');
+const popupImageTitle = document.querySelector('.popup__image-title');
+const popupImageCloseButton = document.querySelector('.popup__close-button_type_image');
+
 
 const clearCards = () => {
     container.querySelectorAll('.elements__card').forEach((cardElement, index) => cardElement.remove());
@@ -60,7 +64,17 @@ const addCard = (card, index) => {
     clearCards();
     renderCards();
     };
+
     container.append(cardElement);
+
+    const cardImage = cardElement.querySelector('.elements__photo');
+
+    cardImage.onclick = (evt) => {
+        const image = evt.target;
+        popupImage.src = image.src;
+        popupImageTitle.textContent = image.alt;
+        popupVueImage.classList.add('popup_opened');
+    };
 };
 
 const renderCards = () => {
@@ -68,6 +82,7 @@ const renderCards = () => {
 };
 
 renderCards();
+
 
 // addCard({
 //     name: 'Гора Эльбрус2',
@@ -90,8 +105,15 @@ function popupSubmit(evt) {
     profileAboutMe.textContent = userAboutMe.value;
     profilePopupClose();
 }
+
+function imagePopupClose() {
+    popupVueImage.classList.remove('popup_opened');
+}
+
 profileEditing.addEventListener('click', profilePopupOpen);
 
 popupClose.addEventListener('click', profilePopupClose);
 
 popupForm.addEventListener('submit', popupSubmit);
+
+popupImageCloseButton.addEventListener('click', imagePopupClose);
