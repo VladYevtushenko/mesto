@@ -1,6 +1,6 @@
 .popup__big-image {
     max-width: 75vw;
-    height: 75vh;
+    max-height: 75vh;
     object-fit: contain;
     object-position: center;
 }

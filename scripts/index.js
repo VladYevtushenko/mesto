@@ -25,33 +25,21 @@ const initialCards = [
     },
 ];
 
-const profileEditing = document.querySelector('.profile__edit-button');
-const popupClose = document.querySelector('.popup__close-button');
-const popup = document.querySelector('.popup');
-const profileName = document.querySelector('.profile__name');
-const profileAboutMe = document.querySelector('.profile__about-me');
-const userName = document.querySelector('#popupProfName');
-const userAboutMe = document.querySelector('#popupProfAboutMe');
-const popupForm = document.querySelector('.popup__container');
-let stateCards = [...initialCards];
 const template = document.querySelector('#element-template');
 const container = template.parentElement;
-const cardTemplate = template.content;
-const popupVueImage = document.querySelector('.popup_type_image');
-const popupImage = document.querySelector('.popup__big-image');
-const popupImageTitle = document.querySelector('.popup__image-title');
-const popupImageCloseButton = document.querySelector('.popup__close-button_type_image');
 
+let stateCards = [...initialCards];
 
 const clearCards = () => {
-    container.querySelectorAll('.elements__card').forEach((cardElement, index) => cardElement.remove());
+    container.querySelectorAll('.elements__card').forEach((cardElement) => cardElement.remove());
 };
 
 const addCard = (card, index) => {
-    const cardElement = cardTemplate.querySelector('.elements__card').cloneNode(true);
+    const cardElement = template.content.querySelector('.elements__card').cloneNode(true);
     cardElement.querySelector('.elements__photo').alt = card.name;
     cardElement.querySelector('.elements__title').textContent = card.name;
     cardElement.querySelector('.elements__photo').src = card.link;
+
 
     const likeButton = cardElement.querySelector('.elements__like-button');
     likeButton.onclick = () => {
@@ -60,21 +48,31 @@ const addCard = (card, index) => {
 
     const deleteButton = cardElement.querySelector('.elements__delete-button');
     deleteButton.onclick = () => {
-    stateCards = [...stateCards.slice(0, index),...stateCards.slice(index + 1),];
-    clearCards();
-    renderCards();
+        stateCards = [...stateCards.slice(0, index), ...stateCards.slice(index + 1)];
+        clearCards();
+        renderCards();
+    };
+
+    const cardBigImage = cardElement.querySelector('.elements__photo');
+    const popupViewImage = document.querySelector('.popup_type_image');
+
+    cardBigImage.onclick = (evt) => {
+        const image = evt.target;
+
+        const popupImage = document.querySelector('.popup__big-image');
+        const popupImageTitle = document.querySelector('.popup__image-title');
+        popupImage.src = image.src;
+        popupImageTitle.textContent = image.alt;
+        popupViewImage.classList.add('popup_opened');
+    };
+
+    const popupImageCloseButton = document.querySelector('#popupImageCloseButton');
+
+    popupImageCloseButton.onclick = () => {
+        popupViewImage.classList.remove('popup_opened');
     };
 
     container.append(cardElement);
-
-    const cardImage = cardElement.querySelector('.elements__photo');
-
-    cardImage.onclick = (evt) => {
-        const image = evt.target;
-        popupImage.src = image.src;
-        popupImageTitle.textContent = image.alt;
-        popupVueImage.classList.add('popup_opened');
-    };
 };
 
 const renderCards = () => {
@@ -84,36 +82,63 @@ const renderCards = () => {
 renderCards();
 
 
-// addCard({
-//     name: 'Гора Эльбрус2',
-//     link: '../images/kirill-pershin-1404681-unsplash.png',
-//   }, initialCards.length);
+const popupCardAddButton = document.querySelector('.profile__add-button');
 
-function profilePopupOpen() {
+popupCardAddButton.onclick = () => {
+    const popupCard = document.querySelector('.popup_type_card');
+    const popupCardCreateButton = document.querySelector('#popupCardCreateBtn');
+    
+    popupCardCreateButton.onclick = (evt) => {
+        evt.preventDefault();
+        const popupCardName = document.querySelector('#popupCardName');
+        const popupImageLink = document.querySelector('#popupImageLink');
+    
+        const newCard = {
+            name: popupCardName.value,
+            link: popupImageLink.value,
+        }; 
+        stateCards = [newCard, ...stateCards];
+        clearCards();
+        renderCards();
+        popupCard.classList.remove('popup_opened');
+    };
+    
+    const popupCardCloseButton = document.querySelector('#popupCardCloseButton');
+    popupCardCloseButton.onclick = () => {
+        popupCard.classList.remove('popup_opened');
+    };    
+
+    popupCard.classList.add('popup_opened');
+    popupCardName.value = ''; 
+    popupImageLink.value = '';
+    
+};
+
+
+const profileEditing = document.querySelector('.profile__edit-button');
+
+profileEditing.onclick = () => {
+    const popup = document.querySelector('.popup');
+    const popupProfileSaveButton = document.querySelector('.popup__save-button');
+    const profileName = document.querySelector('.profile__name');
+    const profileAboutMe = document.querySelector('.profile__about-me');
+    const userName = document.querySelector('#popupProfName');
+    const userAboutMe = document.querySelector('#popupProfAboutMe');
+
+    popupProfileSaveButton.onclick = (evt) => {
+        evt.preventDefault();
+        profileName.textContent = userName.value;
+        profileAboutMe.textContent = userAboutMe.value;
+        popup.classList.remove('popup_opened');
+    };
+    
+    const popupClose = document.querySelector('.popup__close-button');
+    
+    popupClose.onclick = () => {
+        popup.classList.remove('popup_opened');
+    };
+    
     userName.value = profileName.textContent;
     userAboutMe.value = profileAboutMe.textContent;
     popup.classList.add('popup_opened');
-}
-
-function profilePopupClose() {
-    popup.classList.remove('popup_opened');
-}
-
-function popupSubmit(evt) {
-    evt.preventDefault();
-    profileName.textContent = userName.value;
-    profileAboutMe.textContent = userAboutMe.value;
-    profilePopupClose();
-}
-
-function imagePopupClose() {
-    popupVueImage.classList.remove('popup_opened');
-}
-
-profileEditing.addEventListener('click', profilePopupOpen);
-
-popupClose.addEventListener('click', profilePopupClose);
-
-popupForm.addEventListener('submit', popupSubmit);
-
-popupImageCloseButton.addEventListener('click', imagePopupClose);
+};
