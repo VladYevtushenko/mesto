@@ -40,7 +40,7 @@ const popupImageCloseButton = document.querySelector('.popup__close-button_type_
 const popupCard = document.querySelector('.popup_type_card');
 const popupCardForm = document.querySelector('.popup__info-area_type_card');
 const popupCardAddButton = document.querySelector('.profile__add-button');
-const popupCardCloseButton = document.querySelector('#popupCardCloseButton');
+const popupCardCloseButton = document.querySelector('.popup__close-button_type_card');
 
 function popupOpen(popup) {
     popup.classList.add('popup_opened');
