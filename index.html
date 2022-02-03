@@ -44,21 +44,21 @@
         <footer class="footer page__footer">
             <p class="footer__copyright">&COPY; 2022. Влад Евтушенко</p>
         </footer>
-        <div class="popup">
+        <div class="popup popup_type_profile">
             <div class="popup__container">
                 <h2 class="popup__heading">Редактировать профиль</h2>
-                <form class="popup__info-area" name="user-info">
+                <form class="popup__info-area popup__info-area_type_profile" name="user-info">
                     <input type="text" class="popup__input" placeholder="Имя" id="popupProfName" name="user-name">
                     <input type="text" class="popup__input" placeholder="О себе" id="popupProfAboutMe" name="about-me">
-                    <button class="popup__save-button" type="submit">Сохранить</button>
+                    <button class="popup__save-button popup_save-button_type_profile" type="submit">Сохранить</button>
                 </form>
-                <button class="popup__close-button" aria-label="close-button" type="button"></button>
+                <button class="popup__close-button popup__close-button_type_profile" aria-label="close-button" type="button"></button>
             </div>
         </div>
         <div class="popup popup_type_image">
             <div class="popup__container-image">
-                <button type="button" aria-label="close-button" class="popup__close-button" id="popupImageCloseButton"></button>
-                <img class="popup__big-image" src="#">
+                <button type="button" aria-label="close-button" class="popup__close-button popup__close-button_type_image"></button>
+                <img class="popup__big-image">
                 <h2 class="popup__image-title"></h2>
             </div>
             
@@ -66,10 +66,10 @@
         <div class="popup popup_type_card">
             <div class="popup__container">
                 <h2 class="popup__heading">Новое место</h2>
-                <form class="popup__info-area" name="card-info">
+                <form class="popup__info-area popup__info-area_type_card" name="card-info">
                     <input type="text" class="popup__input" placeholder="Название" id="popupCardName" name="card-name">
                     <input type="text" class="popup__input" placeholder="Ссылка на картинку" id="popupImageLink" name="link">
-                    <button class="popup__save-button" id="popupCardCreateBtn" type="submit">Создать</button>
+                    <button class="popup__save-button ppoup__save-button_typ_card" type="submit">Создать</button>
                 </form>
                 <button class="popup__close-button" aria-label="close-button" type="button" id="popupCardCloseButton"></button>
             </div>
