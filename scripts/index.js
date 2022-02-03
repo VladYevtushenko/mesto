@@ -63,6 +63,7 @@ const addCard = (card, index) => {
         const popupImageTitle = document.querySelector('.popup__image-title');
         popupImage.src = image.src;
         popupImageTitle.textContent = image.alt;
+        popupImage.alt = image.alt;
         popupViewImage.classList.add('popup_opened');
     };
 
