@@ -24,7 +24,7 @@ const initialCards = [
         link: './images/ilya-bronskiy-7haj8Ca19Ts-unsplash.jpg',
     },
 ];
-const popup = document.querySelectorAll('.popup');
+const popups = document.querySelectorAll('.popup');
 const popupProfile = document.querySelector('.popup_type_profile');
 const profileEditButton = document.querySelector('.profile__edit-button');
 const popupProfileSaveButton = document.querySelector('.popup__info-area_type_profile');
@@ -37,49 +37,51 @@ const template = document.querySelector('#element-template');
 const container = template.parentElement;
 const popupViewImage = document.querySelector('.popup_type_image');
 const popupImageCloseButton = document.querySelector('.popup__close-button_type_image');
+const popupImage = document.querySelector('.popup__big-image');
+const popupImageTitle = document.querySelector('.popup__image-title');
 const popupCard = document.querySelector('.popup_type_card');
-const popupCardForm = document.querySelector('.popup__info-area_type_card');
 const popupCardAddButton = document.querySelector('.profile__add-button');
+const popupCardForm = document.querySelector('.popup__info-area_type_card');
+const popupCardName = document.querySelector('#popupCardName');
+const popupCardLink = document.querySelector('#popupImageLink');
 const popupCardCloseButton = document.querySelector('.popup__close-button_type_card');
 
-function popupOpen(popup) {
-    popup.classList.add('popup_opened');
+function openPopup(popups) {
+    popups.classList.add('popup_opened');
 }
 
-function popupClose(popup) {
-    popup.classList.remove('popup_opened');
+function closePopup(popups) {
+    popups.classList.remove('popup_opened');
 }
 
-function popupProfileSave (evt) {
+function saveProfilePopup (evt) {
     evt.preventDefault();
     profileName.textContent = userName.value;
     profileAboutMe.textContent = userAboutMe.value;
-    popupProfile.classList.remove('popup_opened');
+    closePopup(popupProfile);
 }
     
-popupProfileSaveButton.addEventListener('submit', popupProfileSave);
+popupProfileSaveButton.addEventListener('submit', saveProfilePopup);
 
-function popupProfileEditing() {
+function editProfilePopup() {
     userName.value = profileName.textContent;
     userAboutMe.value = profileAboutMe.textContent;
-    popupOpen(popupProfile);
+    openPopup(popupProfile);
 }
 
-profileEditButton.addEventListener('click', popupProfileEditing);
+profileEditButton.addEventListener('click', editProfilePopup);
 
-popupProfileCloseButton.addEventListener('click', () => popupClose(popupProfile));
+popupProfileCloseButton.addEventListener('click', () => closePopup(popupProfile));
 
 function viewImage (evt) {
     const image = evt.target;
-    const popupImage = document.querySelector('.popup__big-image');
-    const popupImageTitle = document.querySelector('.popup__image-title');
     popupImage.src = image.src;
     popupImageTitle.textContent = image.alt;
     popupImage.alt = image.alt;
-    popupOpen(popupViewImage);
-};
+    openPopup(popupViewImage);
+}
 
-popupImageCloseButton.addEventListener('click', () => popupClose(popupViewImage));
+popupImageCloseButton.addEventListener('click', () => closePopup(popupViewImage));
 
 function cardTemplate(name, link) {
     const cardElement = template.content.querySelector('.elements__card').cloneNode(true);
@@ -100,7 +102,7 @@ function cardTemplate(name, link) {
     cardBigImage.addEventListener('click', viewImage);
 
     return cardElement;
-};
+}
 
 function addCard(card) {
     container.prepend(card)
@@ -111,25 +113,25 @@ function renderCards () {
         const cardRendering = cardTemplate(card.name, card.link);
         addCard(cardRendering);
     })
-};
+}
 
 renderCards();
 
-popupCardAddButton.addEventListener('click', () => popupOpen(popupCard));
+popupCardAddButton.addEventListener('click', () => openPopup(popupCard));
 
 function popupNewCardForm (evt) {
     evt.preventDefault();
-    const popupCardName = document.querySelector('#popupCardName').value;
-    const popupCardLink = document.querySelector('#popupImageLink').value;
-    const newCardRendering = cardTemplate(popupCardName, popupCardLink);
-    addCard(newCardRendering);
-    popupClose(popupCard);
+    const name = popupCardName.value;
+    const link = popupCardLink.value;
+    const newCardRender = cardTemplate(name, link);
+    addCard(newCardRender);
+    closePopup(popupCard);
     popupCardForm.reset();
-};
+}
 
 popupCardForm.addEventListener('submit', popupNewCardForm);
 
-popupCardCloseButton.addEventListener('click', () => popupClose(popupCard));
+popupCardCloseButton.addEventListener('click', () => closePopup(popupCard));
 
 
 
