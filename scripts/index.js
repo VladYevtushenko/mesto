@@ -48,10 +48,19 @@ const popupCardCloseButton = document.querySelector('.popup__close-button_type_c
 
 function openPopup(popups) {
     popups.classList.add('popup_opened');
+    document.addEventListener('keydown', closeByEscapeBtn);
 }
 
 function closePopup(popups) {
     popups.classList.remove('popup_opened');
+    document.removeEventListener('keydown', closeByEscapeBtn);
+}
+
+function closeByEscapeBtn (evt) {
+    if (evt.key === 'Escape') {
+        const openedPopup = document.querySelector('.popup_opened');
+        closePopup(openedPopup);
+    }
 }
 
 function saveProfilePopup (evt) {
@@ -133,7 +142,13 @@ popupCardForm.addEventListener('submit', popupNewCardForm);
 
 popupCardCloseButton.addEventListener('click', () => closePopup(popupCard));
 
-
+popups.forEach((item) => {
+    item.addEventListener('click', function(evt) {
+        if (evt.target === evt.currentTarget) {
+            closePopup(item);
+        }
+    });
+});
 
 
 
