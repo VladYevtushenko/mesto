@@ -1,33 +1,9 @@
-const initialCards = [
-    {
-        name: 'Лондон',
-        link: './images/biel-morro-wydEbTWhzTc-unsplash.jpg',
-    },
-    {
-        name: 'Лувр',
-        link: './images/patrick-langwallner-TTz_H1FrdIc-unsplash.jpg',
-    },
-    {
-        name: 'Белладжо',
-        link: './images/luca-j-60LHJ-wdcgk-unsplash.jpg',
-    },
-    {
-        name: 'Москва-Сити',
-        link: './images/alexandr-bormotin-jj3PpeBIlLA-unsplash.jpg',
-    },
-    {
-        name: 'Морпорт Сочи',
-        link: './images/dima-fedorov-ZZkw00YCY1E-unsplash.jpg',
-    },
-    {
-        name: 'Санкт-Петербург',
-        link: './images/ilya-bronskiy-7haj8Ca19Ts-unsplash.jpg',
-    },
-];
+import { initialCards } from "./intialCards.js";
+
 const popups = document.querySelectorAll('.popup');
 const popupProfile = document.querySelector('.popup_type_profile');
 const profileEditButton = document.querySelector('.profile__edit-button');
-const popupProfileSaveButton = document.querySelector('.popup__info-area_type_profile');
+const popupProfileSaveButton = document.querySelector('.popup__form_type_profile');
 const popupProfileCloseButton = document.querySelector('.popup__close-button_type_profile');
 const profileName = document.querySelector('.profile__name');
 const profileAboutMe = document.querySelector('.profile__about-me');
@@ -41,7 +17,7 @@ const popupImage = document.querySelector('.popup__big-image');
 const popupImageTitle = document.querySelector('.popup__image-title');
 const popupCard = document.querySelector('.popup_type_card');
 const popupCardAddButton = document.querySelector('.profile__add-button');
-const popupCardForm = document.querySelector('.popup__info-area_type_card');
+const popupCardForm = document.querySelector('.popup__form_type_card');
 const popupCardName = document.querySelector('#popupCardName');
 const popupCardLink = document.querySelector('#popupImageLink');
 const popupCardCloseButton = document.querySelector('.popup__close-button_type_card');

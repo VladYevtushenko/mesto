@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Владислав Евтушенко">
+    <link rel="shortcut icon" href="./images/favicon.ico" type="image/svg">
     <title>Место</title>
     <link rel="stylesheet" href="./pages/index.css">
 </head>
@@ -46,10 +47,12 @@
         </footer>
         <div class="popup popup_type_profile">
             <div class="popup__container">
-                <h2 class="popup__heading">Редактировать профиль</h2>
-                <form class="popup__info-area popup__info-area_type_profile" name="user-info">
+                <h2 class="popup__heading"></h2>
+                <form class="popup__form popup__form_type_profile" name="user-info" novalidate>
                     <input type="text" class="popup__input" placeholder="Имя" id="popupProfName" name="user-name" minlength="2" maxlength="40" required>
+                    <span class="popup__error popupProfName-error"></span>
                     <input type="text" class="popup__input" placeholder="О себе" id="popupProfAboutMe" name="about-me" minlength="2" maxlength="200" required>
+                    <span class="popup__error popupProfAboutMe-error"></span>
                     <button class="popup__save-button popup__save-button_type_profile" type="submit">Сохранить</button>
                 </form>
                 <button class="popup__close-button popup__close-button_type_profile" aria-label="close-button" type="button"></button>
@@ -61,20 +64,23 @@
                 <img class="popup__big-image">
                 <h2 class="popup__image-title"></h2>
             </div>
-            
         </div> 
         <div class="popup popup_type_card">
             <div class="popup__container">
                 <h2 class="popup__heading">Новое место</h2>
-                <form class="popup__info-area popup__info-area_type_card" name="card-info">
+                <form class="popup__form popup__form_type_card" name="card-info" novalidate>
                     <input type="text" class="popup__input" placeholder="Название" id="popupCardName" name="card-name" minlength="2" maxlength="30" required>
+                    <span class="popup__error popupCardName-error"></span>
                     <input type="url" class="popup__input" placeholder="Ссылка на картинку" id="popupImageLink" name="link" required>
+                    <span class="popup__error popupImageLink-error"></span>
                     <button class="popup__save-button popup__save-button_type_card" type="submit">Создать</button>
                 </form>
                 <button class="popup__close-button popup__close-button_type_card" aria-label="close-button" type="button"></button>
             </div>
         </div>       
     </div>
-<script src="./scripts/index.js"></script>    
+<script src="./scripts/validation.js" type="module"></script>
+<script src="./scripts/intialCards.js" type="module"></script>
+<script src="./scripts/index.js" type="module"></script>
 </body>
 </html>
