@@ -1,6 +1,6 @@
 import { initialCards } from "./intialCards.js";
-import { Card } from "./card.js";
-import { config, FormValidator } from "./formValidator.js";
+import { Card } from "./Card.js";
+import { config, FormValidator } from "./FormValidator.js";
 import { popups, popupProfile, profileEditButton, profileForm, profileName, profileAboutMe, userName, userAboutMe, elements, container, popupViewImage, popupImage, popupImageTitle, popupCard, popupCardAddButton, popupCardForm, popupCardName, popupCardLink } from "./consts.js";
 
 const validProfileForm = new FormValidator(config, popupProfile);
@@ -36,11 +36,9 @@ function handleProfileFormSubmit (evt) {
 profileForm.addEventListener('submit', handleProfileFormSubmit);
 
 function editProfilePopup() {
-    profileForm.reset();
     userName.value = profileName.textContent;
     userAboutMe.value = profileAboutMe.textContent;
     openPopup(popupProfile);
-    validProfileForm.checkButtonValidity();
     validProfileForm.resetValidation();
 }
 
@@ -73,7 +71,6 @@ function openCardPopup() {
     popupCardForm.reset();
     openPopup(popupCard);
     validNewCardForm.resetValidation();
-    validNewCardForm.checkButtonValidity();
 }
 popupCardAddButton.addEventListener('click', openCardPopup);
 
