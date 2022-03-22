@@ -1,7 +1,7 @@
-import { initialCards } from "./intialCards.js";
-import { Card } from "./Card.js";
-import { config, FormValidator } from "./FormValidator.js";
-import { popups, popupProfile, profileEditButton, profileForm, profileName, profileAboutMe, userName, userAboutMe, elements, container, popupViewImage, popupImage, popupImageTitle, popupCard, popupCardAddButton, popupCardForm, popupCardName, popupCardLink } from "./consts.js";
+import { initialCards } from "../utils/consts.js";
+import { Card } from "../components/Card.js";
+import { config, FormValidator } from "../components/FormValidator.js";
+import { popups, popupProfile, profileEditButton, profileForm, profileName, profileAboutMe, userName, userAboutMe, elements, container, popupViewImage, popupImage, popupImageTitle, popupCard, popupCardAddButton, popupCardForm, popupCardName, popupCardLink } from "../utils/consts.js";
 
 const validProfileForm = new FormValidator(config, popupProfile);
 const validNewCardForm = new FormValidator(config, popupCard);
