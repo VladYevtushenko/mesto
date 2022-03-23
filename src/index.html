@@ -6,17 +6,16 @@
     <meta name="author" content="Владислав Евтушенко">
     <link rel="shortcut icon" href="./images/favicon.ico" type="image/svg">
     <title>Место</title>
-    <link rel="stylesheet" href="./pages/index.css">
 </head>
 <body class="body">
     <div class="page">
         <header class="header page__header">
-            <img src="./images/Mesto.svg" alt="лого сервиса Mesto" class="header__logo">
+            <img src="<%=require(./images/Mesto.svg)%>" alt="лого сервиса Mesto" class="header__logo">
         </header>
         <main class="main page__main">
             <section class="profile">
                 <div class="profile__info">
-                    <img src="./images/profile-image.png" alt="фото Кусто" class="profile__avatar">
+                    <img src="<%=require(./images/profile-image.png)%>" alt="фото Кусто" class="profile__avatar">
                     <div class="profile__item">
                         <div class="profile__name-box">
                             <h1 class="profile__name">Жак-Ив Кусто</h1>
@@ -79,6 +78,5 @@
             </div>
         </div>       
     </div>
-<script src="./pages/index.js" type="module"></script>
 </body>
 </html>
