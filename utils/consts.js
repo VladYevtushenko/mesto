@@ -1,3 +1,30 @@
+const initialCards = [
+    {
+        name: 'Лондон',
+        link: './images/biel-morro-wydEbTWhzTc-unsplash.jpg',
+    },
+    {
+        name: 'Лувр',
+        link: './images/patrick-langwallner-TTz_H1FrdIc-unsplash.jpg',
+    },
+    {
+        name: 'Белладжо',
+        link: './images/luca-j-60LHJ-wdcgk-unsplash.jpg',
+    },
+    {
+        name: 'Москва-Сити',
+        link: './images/alexandr-bormotin-jj3PpeBIlLA-unsplash.jpg',
+    },
+    {
+        name: 'Морпорт Сочи',
+        link: './images/dima-fedorov-ZZkw00YCY1E-unsplash.jpg',
+    },
+    {
+        name: 'Санкт-Петербург',
+        link: './images/ilya-bronskiy-7haj8Ca19Ts-unsplash.jpg',
+    },
+];
+
 const popups = document.querySelectorAll('.popup');
 const popupProfile = document.querySelector('.popup_type_profile');
 const profileEditButton = document.querySelector('.profile__edit-button');
@@ -19,4 +46,4 @@ const popupCardName = document.querySelector('#popupCardName');
 const popupCardLink = document.querySelector('#popupImageLink');
 
 
-export { popups, popupProfile, profileEditButton, profileForm, profileName, profileAboutMe, userName, userAboutMe, elements, template, container, popupViewImage, popupImage, popupImageTitle, popupCard, popupCardAddButton, popupCardForm, popupCardName, popupCardLink };
+export { initialCards, popups, popupProfile, profileEditButton, profileForm, profileName, profileAboutMe, userName, userAboutMe, elements, template, container, popupViewImage, popupImage, popupImageTitle, popupCard, popupCardAddButton, popupCardForm, popupCardName, popupCardLink };

@@ -3,7 +3,8 @@ export class Card {
         this._text = card.name;
         this._link = card.link;
         this._cardSelector = cardSelector;
-        this._viewImage = viewImage
+        this._viewImage = viewImage;
+        this._card = card;
     }
 
     _getTemplate() {
@@ -12,6 +13,7 @@ export class Card {
             .content
             .querySelector('.elements__card')
             .cloneNode(true);
+
         return cardElement;
     }
 
@@ -31,6 +33,7 @@ export class Card {
 
     _deleteCard = () => {
         this._element.remove();
+        this._card = null;
     }
 
     _like = () => {
