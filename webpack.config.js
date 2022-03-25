@@ -1,13 +1,14 @@
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPluglin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     entry: { main: './src/pages/index.js' },
     output: { 
         path: path.resolve(__dirname, 'dist'),
         filename: 'main.js',
-        publicPath: ''
+        publicPath: '',
     },
     mode: 'development',
     devServer: {
@@ -22,14 +23,29 @@ module.exports = {
                 test: /\.js$/,
                 use: 'babel-loader',
                 exclude: '/node_modules/'
-            }
+            },
+            {
+                test: /\.(png|svg|jpg|woff(2)?|eot|ttf|otf)$/,
+                type: 'asset/resource'
+            },
+            {
+                test: /\.css$/,
+                use: [MiniCssExtractPlugin.loader, {
+                    loader: 'css-loader',
+                    options: {
+                        importLoaders: 1
+                    }
+                },
+                    'postcss-loader'
+                ]
+            },
         ]
     },
     plugins: [
         new CleanWebpackPlugin(),
         new HtmlWebpackPluglin({ 
             template: './src/index.html'
-        })
+        }),
+        new MiniCssExtractPlugin()
     ],
-    // stats: { children: true }
 };
