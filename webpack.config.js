@@ -8,7 +8,7 @@ module.exports = {
     output: { 
         path: path.resolve(__dirname, 'dist'),
         filename: 'main.js',
-        publicPath: '',
+        publicPath: ''
     },
     mode: 'development',
     devServer: {
@@ -26,7 +26,7 @@ module.exports = {
             },
             {
                 test: /\.(png|svg|jpg|woff(2)?|eot|ttf|otf)$/,
-                type: 'asset/resource'
+                type: 'asset/resource',
             },
             {
                 test: /\.css$/,

@@ -1,27 +1,34 @@
+import london from '../images/biel-morro-wydEbTWhzTc-unsplash.jpg';
+import luvr from '../images/patrick-langwallner-TTz_H1FrdIc-unsplash.jpg';
+import beladgio from '../images/luca-j-60LHJ-wdcgk-unsplash.jpg';
+import moscowCity from '../images/alexandr-bormotin-jj3PpeBIlLA-unsplash.jpg';
+import sochi from '../images/dima-fedorov-ZZkw00YCY1E-unsplash.jpg';
+import stPeterburg from '../images/ilya-bronskiy-7haj8Ca19Ts-unsplash.jpg';
+
 const initialCards = [
     {
         name: 'Лондон',
-        link: '../images/biel-morro-wydEbTWhzTc-unsplash.jpg',
+        link: london
     },
     {
         name: 'Лувр',
-        link: '../images/patrick-langwallner-TTz_H1FrdIc-unsplash.jpg',
+        link: luvr
     },
     {
         name: 'Белладжо',
-        link: '../images/luca-j-60LHJ-wdcgk-unsplash.jpg',
+        link: beladgio
     },
     {
         name: 'Москва-Сити',
-        link: '../images/alexandr-bormotin-jj3PpeBIlLA-unsplash.jpg',
+        link: moscowCity
     },
     {
         name: 'Морпорт Сочи',
-        link: '../images/dima-fedorov-ZZkw00YCY1E-unsplash.jpg',
+        link: sochi
     },
     {
         name: 'Санкт-Петербург',
-        link: '../images/ilya-bronskiy-7haj8Ca19Ts-unsplash.jpg',
+        link: stPeterburg
     },
 ];
 
