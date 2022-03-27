@@ -49,8 +49,14 @@ const popupImageTitle = document.querySelector('.popup__image-title');
 const popupCard = document.querySelector('.popup_type_card');
 const popupCardAddButton = document.querySelector('.profile__add-button');
 const popupCardForm = document.querySelector('.popup__form_type_card');
-const popupCardName = document.querySelector('#popupCardName');
-const popupCardLink = document.querySelector('#popupImageLink');
 
+export { initialCards, popups, popupProfile, profileEditButton, profileForm, profileName, profileAboutMe, userName, userAboutMe, elements, template, container, popupViewImage, popupImage, popupImageTitle, popupCard, popupCardAddButton, popupCardForm };
 
-export { initialCards, popups, popupProfile, profileEditButton, profileForm, profileName, profileAboutMe, userName, userAboutMe, elements, template, container, popupViewImage, popupImage, popupImageTitle, popupCard, popupCardAddButton, popupCardForm, popupCardName, popupCardLink };
+export const config = ({
+    formSelector: '.popup__form',
+    inputSelector: '.popup__input',
+    submitButtonSelector: '.popup__save-button',
+    inactiveButtonClass: 'popup__save-button_disabled',
+    inputErrorClass: 'popup__input_type_error',
+    errorClass: 'popup__error_visible',
+}); 

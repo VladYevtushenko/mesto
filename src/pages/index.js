@@ -1,6 +1,7 @@
 import { Card } from "../components/Card.js";
-import { config, FormValidator } from "../components/FormValidator.js";
-import { initialCards, popupProfile, profileEditButton, userName, userAboutMe, popupCard, popupCardAddButton, popupCardForm, popupCardName, popupCardLink } from "../utils/consts.js";
+import { FormValidator } from "../components/FormValidator.js";
+import { config } from "../utils/consts.js";
+import { initialCards, popupProfile, profileEditButton, userName, userAboutMe, popupCard, popupCardAddButton, popupCardForm } from "../utils/consts.js";
 import { Section } from "../components/Section.js";
 import { PopupWithImage } from "../components/PopupWithImage.js";
 import { PopupWithForm } from "../components/PopupWithForm.js";
@@ -33,9 +34,9 @@ const openProfilePopup = () => {
     userName.value = profileInfo.userName;
     userAboutMe.value = profileInfo.aboutMe;
 
-    profileFormPopup.open();
-
     validateProfileForm.resetValidation();
+
+    profileFormPopup.open();
 }
 
 profileEditButton.addEventListener('click', openProfilePopup);
@@ -66,22 +67,20 @@ cardsList.renderItems(initialCards);
 
 const newCardPopup = new PopupWithForm({ 
     popupSelector: '.popup_type_card',
-    handleFormSubmit: () => {
-        const newCard = {
-            name: popupCardName.value,
-            link: popupCardLink.value,
-        };
-        cardsList.addItem(createCard(newCard));
+    handleFormSubmit: (card) => {
+        card.name = card.cardName;
+        cardsList.addItem(createCard(card));
+        
         newCardPopup.close();
-    },
+    }
 });
 
 newCardPopup.setEventListeners();
 
 const openNewCardPopup = () => {
     popupCardForm.reset();
-    newCardPopup.open();
     validateNewCardForm.resetValidation();
+    newCardPopup.open();
 }
 
 popupCardAddButton.addEventListener('click', openNewCardPopup);
