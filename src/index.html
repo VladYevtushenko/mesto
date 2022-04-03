@@ -39,7 +39,7 @@
                                 <h2 class="elements__title"></h2>
                                 <div class="elements__like-area">
                                     <button class="elements__like-button" type="button" aria-label="like-button"></button>
-                                    <p class="elements__like-counter">6</p>
+                                    <p class="elements__like-counter"></p>
                                 </div>
                             </div>
                         </li>
@@ -50,6 +50,17 @@
         <footer class="footer page__footer">
             <p class="footer__copyright">&COPY; 2022. Влад Евтушенко</p>
         </footer>
+        <div class="popup popup_type_avtar">
+            <div class="popup__container">
+                <h2 class="popup__heading">Обновить аватар</h2>
+                <form class="popup__form popup__form_type_profile" name="user-info" novalidate>
+                    <input type="url" class="popup__input" placeholder="Ссылка на картинку" id="popupImageLink" name="link" required>
+                    <span class="popup__error popupImageLink-error"></span>
+                    <button class="popup__save-button popup__save-button_type_profile" type="submit">Сохранить</button>
+                </form>
+                <button class="popup__close-button popup__close-button_type_profile" aria-label="close-button" type="button"></button>
+            </div>
+        </div>
         <div class="popup popup_type_profile">
             <div class="popup__container">
                 <h2 class="popup__heading">Редактировать профиль</h2>
@@ -81,6 +92,15 @@
                     <button class="popup__save-button popup__save-button_type_card" type="submit">Создать</button>
                 </form>
                 <button class="popup__close-button popup__close-button_type_card" aria-label="close-button" type="button"></button>
+            </div>
+        </div>
+        <div class="popup popup_type_dlt-confirm">
+            <div class="popup__container">
+                <h2 class="popup__heading popup__heading_type_dlt-confirm">Вы уверены?</h2>
+                <form class="popup__form popup__form_type_dlt-confirm" name="card-info" novalidate>
+                    <button class="popup__save-button popup__save-button_type_dlt-confirm" type="submit">Да</button>
+                </form>
+                <button class="popup__close-button popup__close-button_type_dlt-confirm" aria-label="close-button" type="button"></button>
             </div>
         </div>       
     </div>
