@@ -1,7 +1,7 @@
 import { Card } from "../components/Card.js";
 import { FormValidator } from "../components/FormValidator.js";
 import { config } from "../utils/consts.js";
-import { initialCards, popupProfile, avatarPopup, profileEditButton, userName, userAboutMe, popupCard, popupCardAddButton, popupCardForm, avatarEdit } from "../utils/consts.js";
+import { popupProfile, avatarPopup, profileEditButton, userName, userAboutMe, popupCard, popupCardAddButton, popupCardForm, avatarEdit } from "../utils/consts.js";
 import { Section } from "../components/Section.js";
 import { PopupWithImage } from "../components/PopupWithImage.js";
 import { PopupWithForm } from "../components/PopupWithForm.js";
@@ -12,7 +12,18 @@ import './index.css';
 api.getProfile()
     .then(res => {
         userInfo.setUserInfo(res.name, res.about, res.avatar)
-        console.log('res', res.avatar)
+    })
+
+api.getInitialCards()
+    .then(cards => {
+        cards.forEach(res => {
+            const card = createCard({
+                name: res.name,
+                link: res.link
+            })
+
+            cardsList.addItem(card)
+        })
     })
 
 const validateProfileForm = new FormValidator(config, popupProfile);
@@ -22,7 +33,7 @@ const validateAvatarForm = new FormValidator(config, avatarPopup)
 const userInfo = new UserInfo({
     userNameSelector: '.profile__name',
     aboutMeSelector: '.profile__about-me',
-    avatarSelector: '.profile__avatar'
+    avatarSelector: '.profile__avatar',
 });
 
 validateProfileForm.enableValidation();
@@ -49,9 +60,16 @@ validateAvatarForm.enableValidation();
 
 const profileFormPopup = new PopupWithForm({
     popupSelector: '.popup_type_profile',
-    handleFormSubmit: (userName, aboutMe) => {
-        userInfo.setUserInfo(userName, aboutMe);
-        profileFormPopup.close();
+    handleFormSubmit: (userData) => {
+        profileFormPopup.renderLoading('Сохранение...');
+        api
+        .editProfile(userData)
+        .then(res => {
+            console.log('res', res)
+            userInfo.setUserInfo(res.name, res.about, res.avatar)
+        })
+        .then(() => profileFormPopup.close())
+        .catch((err) => console.log(err));
     },
 });
 
@@ -91,7 +109,7 @@ const cardsList = new Section({
     },
 }, '.elements__list');
 
-cardsList.renderItems(initialCards);
+// cardsList.renderItems(initialCards);
 
 const newCardPopup = new PopupWithForm({ 
     popupSelector: '.popup_type_card',

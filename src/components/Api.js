@@ -11,6 +11,25 @@ class Api {
         .then(this._getResponseData)
     }
 
+    getInitialCards() {
+        return fetch(`${this._baseUrl}/cards`, {
+            headers: this._headers
+        })
+        .then(this._getResponseData)
+    }
+
+    editProfile(userData) {
+        return fetch(`${this._baseUrl}/users/me`, {
+            method: 'PATCH',
+            headers: this._headers,
+            body: JSON.stringify({
+                name: userData.userName,
+                about: userData.aboutMe
+            })
+        })
+        .then(this._getResponseData)
+    }
+
     _getResponseData(res) {
         if (res.ok) {
             return res.json();

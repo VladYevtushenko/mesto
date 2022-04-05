@@ -11,8 +11,6 @@ export class UserInfo {
             aboutMe: this._profileAboutMe.textContent,
             avatar: this._avatarSelector.src,
         };
-
-        return userData;
     }
 
     setUserInfo(userName, aboutMe, avatar) {

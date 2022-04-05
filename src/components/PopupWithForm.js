@@ -33,7 +33,7 @@ export class PopupWithForm extends Popup {
         this._form.reset();
     }
 
-    // renderLoading(buttonName) {
-    //     this._saveButton.textContent = buttonName;
-    // }
+    renderLoading(buttonName) {
+        this._saveButton.textContent = buttonName;
+    }
 }

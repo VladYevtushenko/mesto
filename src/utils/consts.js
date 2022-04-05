@@ -1,36 +1,36 @@
-import london from '../images/biel-morro-wydEbTWhzTc-unsplash.jpg';
-import luvr from '../images/patrick-langwallner-TTz_H1FrdIc-unsplash.jpg';
-import beladgio from '../images/luca-j-60LHJ-wdcgk-unsplash.jpg';
-import moscowCity from '../images/alexandr-bormotin-jj3PpeBIlLA-unsplash.jpg';
-import sochi from '../images/dima-fedorov-ZZkw00YCY1E-unsplash.jpg';
-import stPeterburg from '../images/ilya-bronskiy-7haj8Ca19Ts-unsplash.jpg';
+// import london from '../images/biel-morro-wydEbTWhzTc-unsplash.jpg';
+// import luvr from '../images/patrick-langwallner-TTz_H1FrdIc-unsplash.jpg';
+// import beladgio from '../images/luca-j-60LHJ-wdcgk-unsplash.jpg';
+// import moscowCity from '../images/alexandr-bormotin-jj3PpeBIlLA-unsplash.jpg';
+// import sochi from '../images/dima-fedorov-ZZkw00YCY1E-unsplash.jpg';
+// import stPeterburg from '../images/ilya-bronskiy-7haj8Ca19Ts-unsplash.jpg';
 
-const initialCards = [
-    {
-        name: 'Лондон',
-        link: london
-    },
-    {
-        name: 'Лувр',
-        link: luvr
-    },
-    {
-        name: 'Белладжо',
-        link: beladgio
-    },
-    {
-        name: 'Москва-Сити',
-        link: moscowCity
-    },
-    {
-        name: 'Морпорт Сочи',
-        link: sochi
-    },
-    {
-        name: 'Санкт-Петербург',
-        link: stPeterburg
-    },
-];
+// const initialCards = [
+//     {
+//         name: 'Лондон',
+//         link: london
+//     },
+//     {
+//         name: 'Лувр',
+//         link: luvr
+//     },
+//     {
+//         name: 'Белладжо',
+//         link: beladgio
+//     },
+//     {
+//         name: 'Москва-Сити',
+//         link: moscowCity
+//     },
+//     {
+//         name: 'Морпорт Сочи',
+//         link: sochi
+//     },
+//     {
+//         name: 'Санкт-Петербург',
+//         link: stPeterburg
+//     },
+// ];
 
 const popups = document.querySelectorAll('.popup');
 const popupProfile = document.querySelector('.popup_type_profile');
@@ -52,7 +52,7 @@ const popupCardAddButton = document.querySelector('.profile__add-button');
 const popupCardForm = document.querySelector('.popup__form_type_card');
 const avatarEdit = document.querySelector('.profile__avatar-edit');
 
-export { initialCards, popups, popupProfile, avatarPopup, profileEditButton, profileForm, profileName, profileAboutMe, userName, userAboutMe, elements, template, container, popupViewImage, popupImage, popupImageTitle, popupCard, popupCardAddButton, popupCardForm, avatarEdit };
+export { popups, popupProfile, avatarPopup, profileEditButton, profileForm, profileName, profileAboutMe, userName, userAboutMe, elements, template, container, popupViewImage, popupImage, popupImageTitle, popupCard, popupCardAddButton, popupCardForm, avatarEdit };
 
 export const config = ({
     formSelector: '.popup__form',
