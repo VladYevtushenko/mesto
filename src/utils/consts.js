@@ -34,6 +34,7 @@ const initialCards = [
 
 const popups = document.querySelectorAll('.popup');
 const popupProfile = document.querySelector('.popup_type_profile');
+const avatarPopup = document.querySelector('.popup_type_avatar');
 const profileEditButton = document.querySelector('.profile__edit-button');
 const profileForm = document.querySelector('.popup__form_type_profile');
 const profileName = document.querySelector('.profile__name');
@@ -49,8 +50,9 @@ const popupImageTitle = document.querySelector('.popup__image-title');
 const popupCard = document.querySelector('.popup_type_card');
 const popupCardAddButton = document.querySelector('.profile__add-button');
 const popupCardForm = document.querySelector('.popup__form_type_card');
+const avatarEdit = document.querySelector('.profile__avatar-edit');
 
-export { initialCards, popups, popupProfile, profileEditButton, profileForm, profileName, profileAboutMe, userName, userAboutMe, elements, template, container, popupViewImage, popupImage, popupImageTitle, popupCard, popupCardAddButton, popupCardForm };
+export { initialCards, popups, popupProfile, avatarPopup, profileEditButton, profileForm, profileName, profileAboutMe, userName, userAboutMe, elements, template, container, popupViewImage, popupImage, popupImageTitle, popupCard, popupCardAddButton, popupCardForm, avatarEdit };
 
 export const config = ({
     formSelector: '.popup__form',
