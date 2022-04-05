@@ -30,6 +30,18 @@ class Api {
         .then(this._getResponseData)
     }
 
+    postCard(card) {
+        return fetch(`${this._baseUrl}/cards`, {
+            method: 'POST',
+            headers: this._headers,
+            body: JSON.stringify({
+                name: card.cardName,
+                link: card.cardLink
+            })
+        })
+        .then(this._getResponseData)
+    }
+
     _getResponseData(res) {
         if (res.ok) {
             return res.json();
