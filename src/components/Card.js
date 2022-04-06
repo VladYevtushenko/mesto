@@ -2,6 +2,7 @@ export class Card {
     constructor(card, cardSelector, viewImage) {
         this._text = card.name;
         this._link = card.link;
+        this._likes = card.likes;
         this._cardSelector = cardSelector;
         this._viewImage = viewImage;
         this._card = card;
@@ -31,13 +32,18 @@ export class Card {
         });
     }
 
-    _deleteCard = () => {
+    _deleteCard() {
         this._element.remove();
         this._card = null;
     }
 
-    _like = () => {
+    _like() {
         this._likeButton.classList.toggle('elements__like-button_active');
+    }
+
+    _setLikes() {
+        const likeCountElement = this._element.querySelector('.elements__like-counter');
+        likeCountElement.textContent = this._likes.length;
     }
 
     generateCard() {
@@ -48,6 +54,7 @@ export class Card {
         this._photo.alt = this._text;
         this._likeButton = this._element.querySelector('.elements__like-button');
         this._setEventListeners();
+        this._setLikes();
 
         return this._element;
     }

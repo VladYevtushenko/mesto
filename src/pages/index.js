@@ -19,7 +19,8 @@ api.getInitialCards()
         cards.forEach(res => {
             const card = createCard({
                 name: res.name,
-                link: res.link
+                link: res.link,
+                likes: res.likes
             })
 
             cardsList.addItem(card)
