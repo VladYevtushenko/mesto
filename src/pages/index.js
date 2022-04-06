@@ -9,9 +9,12 @@ import { UserInfo } from "../components/UserInfo.js";
 import { api } from "../components/Api.js";
 import './index.css';
 
+let userId;
+
 api.getProfile()
     .then(res => {
         userInfo.setUserInfo(res.name, res.about, res.avatar)
+        userId = res._id
     })
 
 api.getInitialCards()
@@ -21,7 +24,9 @@ api.getInitialCards()
                 name: res.name,
                 link: res.link,
                 likes: res.likes,
-                id: res._id
+                id: res._id,
+                userId: userId,
+                ownerId: res.owner._id
             })
 
             cardsList.addItem(card)
@@ -127,8 +132,6 @@ const cardsList = new Section({
         cardsList.addItem(card)
     },
 }, '.elements__list');
-
-// cardsList.renderItems(initialCards);
 
 const newCardPopup = new PopupWithForm({ 
     popupSelector: '.popup_type_card',
