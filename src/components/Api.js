@@ -42,6 +42,14 @@ class Api {
         .then(this._getResponseData)
     }
 
+    deleteCard(id) {
+        return fetch(`${this._baseUrl}/cards/${id}`, {
+            method: 'DELETE',
+            headers: this._headers,
+        })
+        .then(this._getResponseData)
+    }
+
     _getResponseData(res) {
         if (res.ok) {
             return res.json();

@@ -20,7 +20,8 @@ api.getInitialCards()
             const card = createCard({
                 name: res.name,
                 link: res.link,
-                likes: res.likes
+                likes: res.likes,
+                id: res._id
             })
 
             cardsList.addItem(card)
@@ -93,9 +94,7 @@ const imagePopup = new PopupWithImage('.popup_type_image');
 
 imagePopup.setEventListeners();
 
-// const viewImage = (name, link) => {
-//     imagePopup.open(name, link);
-// };
+const confirmDeletePopup = new PopupWithForm({popupSelector:'.popup_type_del-confirm'});
 
 const createCard = (item) => {
     const card = new Card(
@@ -104,8 +103,17 @@ const createCard = (item) => {
         () => {
             imagePopup.open(item.name, item.link)
         },
-        () => {
-            confirmDeletePopup.open()
+        (id) => {
+            confirmDeletePopup.open(),
+            confirmDeletePopup.changeSubmitHandler(() => {
+                confirmDeletePopup.renderLoading('Сохранение...')
+                api
+                    .deleteCard(id)
+                    .then(res => {
+                        confirmDeletePopup.close()
+                        card.deleteCard()
+                    })
+            })
         }
     );
     const cardElement = card.generateCard();
@@ -149,8 +157,5 @@ const openNewCardPopup = () => {
 
 popupCardAddButton.addEventListener('click', openNewCardPopup);
 
-const confirmDeletePopup = new PopupWithForm({
-    popupSelector: '.popup_type_del-confirm',
-});
 
 confirmDeletePopup.setEventListeners();
