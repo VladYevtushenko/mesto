@@ -69,7 +69,8 @@ const profileFormPopup = new PopupWithForm({
             userInfo.setUserInfo(res.name, res.about, res.avatar)
         })
         .then(() => profileFormPopup.close())
-        .catch((err) => console.log(err));
+        .catch((err) => console.log(err))
+        .finally(() => profileFormPopup.renderLoading());
     },
 });
 
@@ -114,11 +115,19 @@ const cardsList = new Section({
 const newCardPopup = new PopupWithForm({ 
     popupSelector: '.popup_type_card',
     handleFormSubmit: (card) => {
-        card.name = card.cardName;
-        cardsList.addItem(createCard(card));
+        profileFormPopup.renderLoading('Сохранение...');
         
-        newCardPopup.close();
-    }
+        api
+            .postCard(card)
+            .then(res => {
+                console.log('res', res)
+                cardsList.addItem(createCard(res));
+            })
+            .then(()=> newCardPopup.close())
+            .catch((err) => console.log(err))
+            .finally(() => profileFormPopup.renderLoading());
+            
+    },
 });
 
 newCardPopup.setEventListeners();
