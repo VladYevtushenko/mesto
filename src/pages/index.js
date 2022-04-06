@@ -93,12 +93,21 @@ const imagePopup = new PopupWithImage('.popup_type_image');
 
 imagePopup.setEventListeners();
 
-const viewImage = (name, link) => {
-    imagePopup.open(name, link);
-};
+// const viewImage = (name, link) => {
+//     imagePopup.open(name, link);
+// };
 
 const createCard = (item) => {
-    const card = new Card(item, '#element-template', viewImage);
+    const card = new Card(
+        item, 
+        '#element-template', 
+        () => {
+            imagePopup.open(item.name, item.link)
+        },
+        () => {
+            confirmDeletePopup.open()
+        }
+    );
     const cardElement = card.generateCard();
 
     return cardElement;
@@ -116,8 +125,7 @@ const cardsList = new Section({
 const newCardPopup = new PopupWithForm({ 
     popupSelector: '.popup_type_card',
     handleFormSubmit: (card) => {
-        profileFormPopup.renderLoading('Сохранение...');
-        
+        newCardPopup.renderLoading('Сохранение...');
         api
             .postCard(card)
             .then(res => {
@@ -126,7 +134,7 @@ const newCardPopup = new PopupWithForm({
             })
             .then(()=> newCardPopup.close())
             .catch((err) => console.log(err))
-            .finally(() => profileFormPopup.renderLoading());
+            .finally(() => newCardPopup.renderLoading());
             
     },
 });
@@ -140,3 +148,9 @@ const openNewCardPopup = () => {
 }
 
 popupCardAddButton.addEventListener('click', openNewCardPopup);
+
+const confirmDeletePopup = new PopupWithForm({
+    popupSelector: '.popup_type_del-confirm',
+});
+
+confirmDeletePopup.setEventListeners();

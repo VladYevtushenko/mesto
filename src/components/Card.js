@@ -1,11 +1,12 @@
 export class Card {
-    constructor(card, cardSelector, viewImage) {
+    constructor(card, cardSelector, viewImage, handleDelClick) {
         this._text = card.name;
         this._link = card.link;
         this._likes = card.likes;
         this._cardSelector = cardSelector;
         this._viewImage = viewImage;
         this._card = card;
+        this._handleDelClick = handleDelClick;
     }
 
     _getTemplate() {
@@ -22,7 +23,7 @@ export class Card {
         this._element
             .querySelector('.elements__delete-button')
             .addEventListener('click', () => {
-                this._deleteCard();
+                this._handleDelClick();
             });
         this._likeButton.addEventListener('click', () => {
             this._like();
@@ -32,10 +33,10 @@ export class Card {
         });
     }
 
-    _deleteCard() {
-        this._element.remove();
-        this._card = null;
-    }
+    // _deleteCard() {
+    //     this._element.remove();
+    //     this._card = null;
+    // }
 
     _like() {
         this._likeButton.classList.toggle('elements__like-button_active');
