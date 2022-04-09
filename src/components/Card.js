@@ -4,9 +4,9 @@ export class Card {
         this._text = card.name;
         this._link = card.link;
         this._likes = card.likes;
-        this._id = card.id;
+        this._id = card._id;
         this._userId = card.userId;
-        this._ownerId = card.ownerId;
+        this._ownerId = card.owner._id;
 
         this._cardSelector = cardSelector;
         this._viewImage = viewImage;
@@ -42,8 +42,12 @@ export class Card {
     }
 
     isLiked() {
-        const cardLikeHandler = this._likes.find(user => user._id === this._userId);
-
+        console.log('likes', this._likes)
+        const cardLikeHandler = this._likes.find(user => {
+            console.log(user, this)
+            return user._id === this._userId
+        });
+        console.log({cardLikeHandler});
         return cardLikeHandler;
     }
 

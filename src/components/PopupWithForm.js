@@ -34,7 +34,7 @@ export class PopupWithForm extends Popup {
         this._form.reset();
     }
 
-    renderLoading(buttonName) {
+    renderLoading(buttonName = "Сохранить") {
         this._saveButton.textContent = buttonName;
     }
 }
