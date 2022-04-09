@@ -30,6 +30,17 @@ class Api {
         .then(this._getResponseData)
     }
 
+    editAvatar(avatarLink) {
+        return fetch(`${this._baseUrl}/users/me/avatar`, {
+            method: 'PATCH',
+            headers: this._headers,
+            body: JSON.stringify({
+                avatar: avatarLink
+            })
+        })
+        .then(this._getResponseData)
+    }
+
     postCard(card) {
         return fetch(`${this._baseUrl}/cards`, {
             method: 'POST',
@@ -38,6 +49,30 @@ class Api {
                 name: card.cardName,
                 link: card.cardLink
             })
+        })
+        .then(this._getResponseData)
+    }
+
+    deleteCard(id) {
+        return fetch(`${this._baseUrl}/cards/${id}`, {
+            method: 'DELETE',
+            headers: this._headers,
+        })
+        .then(this._getResponseData)
+    }
+
+    deleteLike(id) {
+        return fetch(`${this._baseUrl}/cards/${id}/likes`, {
+            method: 'DELETE',
+            headers: this._headers,
+        })
+        .then(this._getResponseData)
+    }
+
+    addLike(id) {
+        return fetch(`${this._baseUrl}/cards/${id}/likes`, {
+            method: 'PUT',
+            headers: this._headers,
         })
         .then(this._getResponseData)
     }

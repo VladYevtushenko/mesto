@@ -10,7 +10,11 @@ export class Section {
         });
     }
 
-    addItem(card) {
-        this._container.prepend(card);
+    addItem(card, isPrepend = false) {
+        if (isPrepend) {
+            this._container.prepend(card);
+        } else {
+            this._container.append(card);
+        }
     }
 }
