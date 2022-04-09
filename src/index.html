@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Владислав Евтушенко">
+    <link rel="shortcut icon" href="./images/favicon.ico" type="image/svg">
+    <title>Место</title>
+</head>
+<body class="body">
+    <div class="page">
+        <header class="header page__header">
+            <img src="<%=require('./images/Mesto.svg')%>" alt="лого сервиса Mesto" class="header__logo">
+        </header>
+        <main class="main page__main">
+            <section class="profile">
+                <div class="profile__info">
+                    <img src="#" alt="фото профиля" class="profile__avatar">
+                    <div class="profile__avatar-overlay">
+                        <button class="profile__avatar-edit" type="button" aria-label="avatar-edit"></button>
+                    </div>
+                    <div class="profile__item">
+                        <div class="profile__name-box">
+                            <h1 class="profile__name"></h1>
+                            <button class="profile__edit-button" aria-label="edit-batton" type="button"></button>
+                        </div>
+                        <p class="profile__about-me"></p>
+                    </div>
+                </div>
+                <button class="profile__add-button" aria-label="add-button" type="button"></button>
+            </section>
+            <section class="elements">
+                <ul class="elements__list">
+                    <template id="element-template">
+                        <li class="elements__card">
+                            <img class="elements__photo">
+                            <button class="elements__delete-button" type="button" eria-label="delete-button"></button>
+                            <div class="elements__info">
+                                <h2 class="elements__title"></h2>
+                                <div class="elements__like-area">
+                                    <button class="elements__like-button" type="button" aria-label="like-button"></button>
+                                    <span class="elements__like-counter"></span>
+                                </div>
+                            </div>
+                        </li>
+                    </template>
+                </ul>
+            </section>
+        </main>
+        <footer class="footer page__footer">
+            <p class="footer__copyright">&COPY; 2022. Влад Евтушенко</p>
+        </footer>
+        <div class="popup popup_type_avatar">
+            <div class="popup__container">
+                <h2 class="popup__heading">Обновить аватар</h2>
+                <form class="popup__form popup__form_type_avatar" name="user-info" novalidate>
+                    <input type="url" class="popup__input" placeholder="Ссылка на картинку" id="avatarLink" name="avatarLink" required>
+                    <span class="popup__error avatarLink-error"></span>
+                    <button class="popup__save-button popup__save-button_type_avatar" type="submit">Сохранить</button>
+                </form>
+                <button class="popup__close-button popup__close-button_type_avatar" aria-label="close-button" type="button"></button>
+            </div>
+        </div>
+        <div class="popup popup_type_profile">
+            <div class="popup__container">
+                <h2 class="popup__heading">Редактировать профиль</h2>
+                <form class="popup__form popup__form_type_profile" name="user-info" novalidate>
+                    <input type="text" class="popup__input" placeholder="Имя" id="popupProfName" name="userName" minlength="2" maxlength="40" required>
+                    <span class="popup__error popupProfName-error"></span>
+                    <input type="text" class="popup__input" placeholder="О себе" id="popupProfAboutMe" name="aboutMe" minlength="2" maxlength="200" required>
+                    <span class="popup__error popupProfAboutMe-error"></span>
+                    <button class="popup__save-button popup__save-button_type_profile" type="submit">Сохранить</button>
+                </form>
+                <button class="popup__close-button popup__close-button_type_profile" aria-label="close-button" type="button"></button>
+            </div>
+        </div>
+        <div class="popup popup_type_image">
+            <div class="popup__container-image">
+                <button type="button" aria-label="close-button" class="popup__close-button popup__close-button_type_image"></button>
+                <img class="popup__big-image">
+                <h2 class="popup__image-title"></h2>
+            </div>
+        </div> 
+        <div class="popup popup_type_card">
+            <div class="popup__container">
+                <h2 class="popup__heading">Новое место</h2>
+                <form class="popup__form popup__form_type_card" name="card-info" novalidate>
+                    <input type="text" class="popup__input" placeholder="Название" id="popupCardName" name="cardName" minlength="2" maxlength="30" required>
+                    <span class="popup__error popupCardName-error"></span>
+                    <input type="url" class="popup__input" placeholder="Ссылка на картинку" id="popupImageLink" name="cardLink" required>
+                    <span class="popup__error popupImageLink-error"></span>
+                    <button class="popup__save-button popup__save-button_type_card" type="submit">Создать</button>
+                </form>
+                <button class="popup__close-button popup__close-button_type_card" aria-label="close-button" type="button"></button>
+            </div>
+        </div>
+        <div class="popup popup_type_del-confirm">
+            <div class="popup__container">
+                <h2 class="popup__heading popup__heading_type_del-confirm">Вы уверены?</h2>
+                <form class="popup__form popup__form_type_dlt-confirm" name="card-info" novalidate>
+                    <button class="popup__save-button popup__save-button_type_del-confirm" type="submit">Да</button>
+                </form>
+                <button class="popup__close-button popup__close-button_type_del-confirm" aria-label="close-button" type="button"></button>
+            </div>
+        </div>       
+    </div>
+</body>
+</html>
