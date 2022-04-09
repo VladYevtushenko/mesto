@@ -42,12 +42,7 @@ export class Card {
     }
 
     isLiked() {
-        console.log('likes', this._likes)
-        const cardLikeHandler = this._likes.find(user => {
-            console.log(user, this)
-            return user._id === this._userId
-        });
-        console.log({cardLikeHandler});
+        const cardLikeHandler = this._likes.find(user => user._id === this._userId);
         return cardLikeHandler;
     }
 

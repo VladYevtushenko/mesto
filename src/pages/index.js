@@ -25,33 +25,13 @@ const userInfo = new UserInfo({
 
 let userId;
 
-// Promise.all([api.getProfile(), api.getUserInfo()])
-//     .then(res => {
-//         userInfo.setUserInfo(res.name, res.about, res.avatar);
-//         userId = res._id;
-//         res.forEach(res => {
-//             const card = createCard({
-//                 name: res.name,
-//                 link: res.link,
-//                 likes: res.likes,
-//                 id: res._id,
-//                 userId: userId,
-//                 ownerId: res.owner._id
-//             });
-
-//             cardsList.addItem(card);
-//         });
-        
-//     })
-
-api.getProfile()
-    .then(res => {
-        userInfo.setUserInfo(res.name, res.about, res.avatar)
-        userId = res._id
-    })
-
-api.getInitialCards()
-    .then(cards => {
+Promise.all([api.getProfile(), api.getInitialCards()])
+    .then((results) => {
+        const user = results[0];
+        userInfo.setUserInfo(user.name, user.about, user.avatar)
+        userId = user._id
+    
+        const cards = results[1];
         cards.forEach(res => {
             const card = createCard({...res, userId})
             cardsList.addItem(card)
@@ -65,7 +45,6 @@ const avatarFormPopup = new PopupWithForm({
         api
             .editAvatar(link.avatarLink)
             .then(res => {
-                console.log('res.avatarFormPopup', res);
                 userInfo.setUserInfo(res.name, res.about, res.avatar );
             })
             .then(() => avatarFormPopup.close())
@@ -90,7 +69,6 @@ const profileFormPopup = new PopupWithForm({
         api
             .editProfile(userData)
             .then(res => {
-                console.log('res profile edit', res)
                 userInfo.setUserInfo(res.name, res.about, res.avatar)
             })
             .then(() => profileFormPopup.close())
@@ -146,7 +124,6 @@ const createCard = (item) => {
     }
 
     function cardLikeHandler1(id) {
-        console.log({card})
         if(card.isLiked()) {
             api
                 .deleteLike(id)
@@ -183,9 +160,7 @@ const newCardPopup = new PopupWithForm({
         api
             .postCard(card)
             .then(res => {
-                console.log('res', res)
                 cardsList.addItem(createCard({...res, userId}));
-                console.log(cardsList._container)
             })
             .then(()=> newCardPopup.close())
             .catch((err) => console.log(err))
