@@ -12,9 +12,9 @@ export class Section {
 
     addItem(card, isPrepend = false) {
         if (isPrepend) {
-            this._container.prepend(card);
-        } else {
             this._container.append(card);
+        } else {
+            this._container.prepend(card);
         }
     }
 }

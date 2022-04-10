@@ -27,16 +27,12 @@ let userId;
 
 Promise.all([api.getProfile(), api.getInitialCards()])
     .then((results) => {
-        const user = results[0];
-        userInfo.setUserInfo(user.name, user.about, user.avatar)
-        userId = user._id
-    
-        const cards = results[1];
-        cards.forEach(res => {
-            const card = createCard({...res, userId})
-            cardsList.addItem(card)
+            const [user, cards] = results;
+            userId = user._id;
+            userInfo.setUserInfo(user.name, user.about, user.avatar);
+            cardsList.renderItems(cards);
         })
-    })
+    .catch((err) => console.log(err));
 
 const avatarFormPopup = new PopupWithForm({
     popupSelector: '.popup_type_avatar',
@@ -104,11 +100,11 @@ const createCard = (item) => {
         () => {
             imagePopup.open(item.name, item.link)
         },
-        handleDelClick1,
-        cardLikeHandler1
+        handleDelClick,
+        handleLikeClick
     );
 
-    function handleDelClick1(id) {
+    function handleDelClick(id) {
         confirmDeletePopup.open(),
         confirmDeletePopup.changeSubmitHandler(() => {
             confirmDeletePopup.renderLoading('Сохранение...')
@@ -123,7 +119,7 @@ const createCard = (item) => {
         })
     }
 
-    function cardLikeHandler1(id) {
+    function handleLikeClick(id) {
         if(card.isLiked()) {
             api
                 .deleteLike(id)
@@ -148,7 +144,7 @@ const createCard = (item) => {
 
 const cardsList = new Section({
     renderer: (cardItem) => {
-        const card = createCard(cardItem);
+        const card = createCard({...cardItem, userId});
         cardsList.addItem(card)
     },
 }, '.elements__list');
